@@ -8,10 +8,14 @@ namespace PRG281_Nel_Pieter_Proj
         [STAThread]
         static void Main()
         {
+            Loan[] loans = new Loan[5];
+
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new CreateLoans());
+            Application.Run(new PromptForPrimeInterestRate());
+
+
         }
     }
 }

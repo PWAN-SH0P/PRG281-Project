@@ -1,11 +1,9 @@
 namespace PRG281_Nel_Pieter_Proj
 {
-    public partial class CreateLoans : Form
+    public partial class PromptForPrimeInterestRate : Form
     {
 
-        Loan[] loans = new Loan[5];
-
-        public CreateLoans()
+        public PromptForPrimeInterestRate()
         {
             InitializeComponent();
         }

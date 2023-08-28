@@ -1,6 +1,6 @@
 ﻿namespace PRG281_Nel_Pieter_Proj
 {
-    partial class CreateLoans
+    partial class PromptForPrimeInterestRate
     {
         /// <summary>
         ///  Required designer variable.
@@ -31,7 +31,7 @@
             components = new System.ComponentModel.Container();
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Text = "CreateLoans";
+            Text = "PromptForPrimeInterestRate";
         }
 
         #endregion
