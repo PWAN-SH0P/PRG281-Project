@@ -10,7 +10,7 @@ namespace PRG281_Nel_Pieter_Proj
 
         private void CreateLoans_Load(object sender, EventArgs e)
         {
-
+            Console.WriteLine("asdfasdfasdf");
         }
     }
 }
