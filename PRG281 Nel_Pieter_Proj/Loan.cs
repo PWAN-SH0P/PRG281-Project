@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG281_Nel_Pieter_Proj
 {
-    internal class Loan 
+    internal class Loan
     {
         protected int _loanNumber;
         protected string _customerLastName;
@@ -14,7 +14,7 @@ namespace PRG281_Nel_Pieter_Proj
         protected double _loanAmount;
         protected LoanTerm _loanTerm;
         protected const LoanTerm _defaultTerm = LoanTerm.Short;
-        protected double _interestRate = 0.05;
+        public static double PrimeInterestRate {get; set;}
         protected double _maxLoanAmount = 100000.0;
 
 

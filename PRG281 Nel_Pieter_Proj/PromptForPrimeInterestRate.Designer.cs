@@ -28,12 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            txtPrimeInterestRate = new TextBox();
+            btnSubmit = new Button();
+            SuspendLayout();
+            // 
+            // txtPrimeInterestRate
+            // 
+            txtPrimeInterestRate.Location = new Point(71, 86);
+            txtPrimeInterestRate.Name = "txtPrimeInterestRate";
+            txtPrimeInterestRate.Size = new Size(125, 27);
+            txtPrimeInterestRate.TabIndex = 0;
+            txtPrimeInterestRate.TextChanged += txtPrimeInterestRate_TextChanged;
+            // 
+            // btnSubmit
+            // 
+            btnSubmit.Location = new Point(114, 137);
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.Size = new Size(94, 29);
+            btnSubmit.TabIndex = 1;
+            btnSubmit.Text = "Submit";
+            btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
+            // 
+            // PromptForPrimeInterestRate
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnSubmit);
+            Controls.Add(txtPrimeInterestRate);
+            Name = "PromptForPrimeInterestRate";
             Text = "PromptForPrimeInterestRate";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private TextBox txtPrimeInterestRate;
+        private Button btnSubmit;
     }
 }
