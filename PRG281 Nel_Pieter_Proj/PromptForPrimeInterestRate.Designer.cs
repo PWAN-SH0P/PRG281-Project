@@ -34,7 +34,7 @@
             // 
             // txtPrimeInterestRate
             // 
-            txtPrimeInterestRate.Location = new Point(71, 86);
+            txtPrimeInterestRate.Location = new Point(285, 48);
             txtPrimeInterestRate.Name = "txtPrimeInterestRate";
             txtPrimeInterestRate.Size = new Size(125, 27);
             txtPrimeInterestRate.TabIndex = 0;
@@ -42,7 +42,7 @@
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(114, 137);
+            btnSubmit.Location = new Point(316, 156);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(94, 29);
             btnSubmit.TabIndex = 1;

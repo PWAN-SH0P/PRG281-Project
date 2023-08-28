@@ -23,6 +23,7 @@ namespace PRG281_Nel_Pieter_Proj
             if (interestRate != 0)
             {
                 Loan.PrimeInterestRate = interestRate;
+                Application.Exit();
             }
         }
     }
