@@ -7,7 +7,7 @@ using System.IO;
 
 namespace PRG281_Nel_Pieter_Proj
 {
-    internal class Loan
+    internal class Loan : LoanConstants
     {
         protected int _loanNumber;
         protected string _customerLastName;
@@ -26,6 +26,7 @@ namespace PRG281_Nel_Pieter_Proj
             _customerLastName = customerSurname;
             _loanAmount = loanAmount;
             _loanTerm = loanTerm;
+            SetPrimeInterestRate();
         }
 
         public void SetPrimeInterestRate()
