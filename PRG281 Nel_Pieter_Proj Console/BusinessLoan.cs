@@ -12,5 +12,11 @@ namespace PRG281_Nel_Pieter_Proj
         {
             PrimeInterestRate += 0.01;
         }
+
+        public static BusinessLoan CreateLoan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm)
+        {
+            BusinessLoan businessLoan = new BusinessLoan(loanNumber, customerName, customerName, loanAmount, loanTerm);
+            return businessLoan;
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using PRG281_Nel_Pieter_Proj;
@@ -10,12 +11,28 @@ namespace PRG281_Nel_Pieter_Proj_Console
     internal class UserInterface
     {
         private static LoanType loanType;
-
-
+        private static string customerName = Console.ReadLine();
+        private static string customerSurname = Console.ReadLine();
+        private static int loanNumber;
+        private static double loanAmount;
+        
+        
         public void StartMenu()
         {
             Console.WriteLine($"Welcome to {Loan.CompanyName}!");
             Loan.SetPrimeInterestRate();
+            ChooseLoanType();
+            EnterLoanDetails();
+
+            switch(loanType)
+            {
+                case LoanType.Business:
+                    Loan.LoanCreated += PersonalLoan.CreateLoan;
+                    break;
+                case LoanType.Personal:
+                    Loan.LoanCreated += BusinessLoan.CreateLoan;
+            }
+
         }
 
         public void ChooseLoanType()
@@ -37,17 +54,17 @@ namespace PRG281_Nel_Pieter_Proj_Console
             loanType = (LoanType)loanTypeInt;
         }
    
-        public void SetLoanDetails(Loan loan)
+        public void EnterLoanDetails()
         {
 
             Console.WriteLine("Enter Loan Number: ");
             string loanNumberRaw = Console.ReadLine();
 
             Console.WriteLine("Enter Customer Name: ");
-            string customerName = Console.ReadLine();
+            string enteredCustomerName = Console.ReadLine();
 
             Console.WriteLine("Enter Customer Surname: ");
-            string customerSurname = Console.ReadLine();
+            string enteredCustomerSurname = Console.ReadLine();
 
             Console.WriteLine("Enter Loan Amount: ");
             string loanAmountRaw = Console.ReadLine();
@@ -59,29 +76,35 @@ namespace PRG281_Nel_Pieter_Proj_Console
             string loanTermRaw = Console.ReadLine();
 
 
-            if(!int.TryParse(loanNumberRaw, out int loanNumber))
+            if(!int.TryParse(loanNumberRaw, out int enteredLoanNumber))
             {
                 Console.Clear();
                 Console.WriteLine("Invalid loan number");
-                SetLoanDetails(loan);
+                EnterLoanDetails();
+                return;
             }
 
-            if (!double.TryParse(loanAmountRaw, out double loanAmount))
+            if (!double.TryParse(loanAmountRaw, out double enteredLoanAmount))
             {
                 Console.Clear();
                 Console.WriteLine("Invalid loan amount");
-                SetLoanDetails(loan);
+                EnterLoanDetails();
+                return;
             }
 
             if(!int.TryParse(loanTermRaw, out int loanTermInt) || loanTermInt > 2)
             {
                 Console.Clear();
                 Console.WriteLine("Invalid loan term");
-                SetLoanDetails(loan);
+                EnterLoanDetails();
+                return;
             }
 
+            loanNumber = enteredLoanNumber;
+            customerName = enteredCustomerName;
+            customerSurname = enteredCustomerSurname;
+            loanAmount = enteredLoanAmount;
         }
-
     }
 }
 

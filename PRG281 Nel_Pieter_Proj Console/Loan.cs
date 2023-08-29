@@ -10,7 +10,8 @@ namespace PRG281_Nel_Pieter_Proj
 {
     internal class Loan : LoanConstants
     {
-        public event EventHandler<EventArgs> LoanCreated;
+        public delegate void LoanCreationHandler(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm);
+        public static event LoanCreationHandler LoanCreated;
 
         protected int _loanNumber;
         protected string _customerLastName;
@@ -21,11 +22,10 @@ namespace PRG281_Nel_Pieter_Proj
         protected double _maxLoanAmount = 100000.0;
 
 
-        public void CreateLoan()
+        public void CreateLoan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm)
         {
-            LoanCreated?.Invoke(this, EventArgs.Empty);
+            LoanCreated?.Invoke(loanNumber, customerName, customerSurname, loanAmount, loanTerm);
         }
-
 
         public Loan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm) 
         {
