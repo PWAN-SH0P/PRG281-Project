@@ -10,8 +10,6 @@ namespace PRG281_Nel_Pieter_Proj
 {
     internal class Loan : LoanConstants
     {
-        public delegate void LoanCreationHandler(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm);
-        public static event LoanCreationHandler LoanCreated;
 
         protected int _loanNumber;
         protected string _customerLastName;
@@ -22,46 +20,47 @@ namespace PRG281_Nel_Pieter_Proj
         protected double _maxLoanAmount = 100000.0;
 
 
-        public void CreateLoan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm)
+        public Loan(LoanDataHandler loanDataHandler) 
         {
-            LoanCreated?.Invoke(loanNumber, customerName, customerSurname, loanAmount, loanTerm);
-        }
-
-        public Loan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm) 
-        {
-            _loanNumber = loanNumber;
-            _customerFirstName = customerName;
-            _customerLastName = customerSurname;
-            _loanAmount = loanAmount;
-            _loanTerm = loanTerm;
-            SetPrimeInterestRate();
+            _loanNumber = loanDataHandler.LoanNumber;
+            _customerFirstName = loanDataHandler.CustomerName; 
+            _customerLastName = loanDataHandler.CustomerSurname; 
+            _loanAmount = loanDataHandler.LoanAmount; 
+            _loanTerm = loanDataHandler.TermOfLoan;
         }
 
         public static void SetPrimeInterestRate()
         {
 
-            double interestRate;
-
             Console.WriteLine("Please enter the prime interest rate (%)");
             string enteredInterestRate = Console.ReadLine();
 
-            if(double.TryParse(enteredInterestRate, out interestRate))
-            {
-                PrimeInterestRate = interestRate/100.0;
-            }
-            else
+            if(!double.TryParse(enteredInterestRate, out double interestRate))
             {
                 Console.Clear();
                 Console.WriteLine("Enter a valid prime interest rate");
-                SetPrimeInterestRate();
+                return;
+            }
+            else
+            {
+                PrimeInterestRate = interestRate / 100.0;
+                return;
             }
 
         }
 
+        /*
+        private static void SetRepaymentAmount()
+        {
+
+        }
+        */
+
+
         public override string ToString()
         {
-            return "{" + $"Loan number: {_loanNumber}, First Name: {_customerFirstName} " +
-                   $"Last Name: {_customerLastName}, Loan Amount: {_loanAmount}" + "}";
+            return "{" + $"Loan number: {_loanNumber} \t First Name: {_customerFirstName} \t" +
+                   $"Last Name: {_customerLastName} \t Loan Amount: {_loanAmount}" + "}";
 
         }
     }

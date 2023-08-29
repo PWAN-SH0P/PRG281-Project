@@ -3,3 +3,13 @@ C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\P
 C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.AssemblyInfoInputs.cache
 C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.AssemblyInfo.cs
 C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.csproj.CoreCompileInputs.cache
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\bin\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.exe
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\bin\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.deps.json
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\bin\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.runtimeconfig.json
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\bin\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.dll
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\bin\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.pdb
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.dll
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\refint\PRG281 Nel_Pieter_Proj Console.dll
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.pdb
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.genruntimeconfig.cache
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\ref\PRG281 Nel_Pieter_Proj Console.dll

@@ -9,14 +9,14 @@ namespace PRG281_Nel_Pieter_Proj
     internal class PersonalLoan : Loan
     {
 
-        PersonalLoan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm): base(loanNumber, customerName, customerSurname, loanAmount, loanTerm)
+        PersonalLoan(LoanDataHandler loanDataHandler): base(loanDataHandler)
         {
             PrimeInterestRate += 0.02;
         }
 
-        public static PersonalLoan CreateLoan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm)
+        public static PersonalLoan CreateLoan(LoanDataHandler loanDataHandler)
         {
-            PersonalLoan personalLoan = new PersonalLoan(loanNumber, customerName,customerName, loanAmount, loanTerm);
+            PersonalLoan personalLoan = new PersonalLoan(loanDataHandler);
             return personalLoan;
         }
     }

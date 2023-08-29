@@ -10,38 +10,40 @@ namespace PRG281_Nel_Pieter_Proj_Console
 {
     internal class UserInterface
     {
-        private static LoanType loanType;
-        private static string customerName = Console.ReadLine();
-        private static string customerSurname = Console.ReadLine();
-        private static int loanNumber;
-        private static double loanAmount;
-        
-        
-        public void StartMenu()
+
+        private static LoanDataHandler loanData = new LoanDataHandler();
+
+
+        public static void StartMenu()
         {
             Console.WriteLine($"Welcome to {Loan.CompanyName}!");
             Loan.SetPrimeInterestRate();
+        }
+
+        public static Loan MainMenu()
+        {
             ChooseLoanType();
             EnterLoanDetails();
 
-            switch(loanType)
+            switch(loanData.TypeOfLoan)
             {
                 case LoanType.Business:
-                    Loan.LoanCreated += PersonalLoan.CreateLoan;
-                    break;
-                case LoanType.Personal:
-                    Loan.LoanCreated += BusinessLoan.CreateLoan;
-            }
+                    Console.Clear();
+                    return PersonalLoan.CreateLoan(loanData);
 
+                default:
+                    Console.Clear();
+                    return BusinessLoan.CreateLoan(loanData);
+            }
         }
 
-        public void ChooseLoanType()
+        public static void ChooseLoanType()
         {
             Console.WriteLine("Choose Loan Type");
             Console.WriteLine("0. Personal Loan");
             Console.WriteLine("1. Business Loan");
 
-            int loanTypeInt;
+            int loanTypeInt = -1;
             string loanTypeRaw = Console.ReadLine();
 
             if(!int.TryParse(loanTypeRaw, out loanTypeInt) || loanTypeInt > 1)
@@ -51,10 +53,11 @@ namespace PRG281_Nel_Pieter_Proj_Console
                 return;
             }
 
-            loanType = (LoanType)loanTypeInt;
+            loanData.TypeOfLoan = (LoanType)loanTypeInt;
+           
         }
    
-        public void EnterLoanDetails()
+        public static void EnterLoanDetails()
         {
 
             Console.WriteLine("Enter Loan Number: ");
@@ -100,10 +103,11 @@ namespace PRG281_Nel_Pieter_Proj_Console
                 return;
             }
 
-            loanNumber = enteredLoanNumber;
-            customerName = enteredCustomerName;
-            customerSurname = enteredCustomerSurname;
-            loanAmount = enteredLoanAmount;
+            loanData.TermOfLoan = (LoanTerm)loanTermInt;
+            loanData.LoanNumber = enteredLoanNumber;
+            loanData.CustomerName = enteredCustomerName;
+            loanData.CustomerSurname = enteredCustomerSurname;
+            loanData.LoanAmount = enteredLoanAmount;
         }
     }
 }
