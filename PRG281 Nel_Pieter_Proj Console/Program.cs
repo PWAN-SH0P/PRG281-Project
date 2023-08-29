@@ -12,7 +12,8 @@ namespace PRG281_Nel_Pieter_Proj
     {
         public static void Main(string[] args)
         {
-
+            Loan[] loans = new Loan[5];
+            
         }
     }
 }

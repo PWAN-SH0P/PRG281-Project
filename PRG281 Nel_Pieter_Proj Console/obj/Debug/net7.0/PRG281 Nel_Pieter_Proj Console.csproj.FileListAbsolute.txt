@@ -1,0 +1,5 @@
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.csproj.AssemblyReference.cache
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.AssemblyInfoInputs.cache
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.AssemblyInfo.cs
+C:\Users\Ruan\OneDrive - belgiumcampus.ac.za\Belgium Campus\2_Sophomore\PRG281\Project\PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj Console\obj\Debug\net7.0\PRG281 Nel_Pieter_Proj Console.csproj.CoreCompileInputs.cache

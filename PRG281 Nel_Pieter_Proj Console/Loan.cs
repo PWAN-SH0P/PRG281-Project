@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PRG281_Nel_Pieter_Proj
 {
     internal class Loan : LoanConstants
     {
+        public event EventHandler<EventArgs> LoanCreated;
+
         protected int _loanNumber;
         protected string _customerLastName;
         protected string _customerFirstName;
@@ -16,6 +19,12 @@ namespace PRG281_Nel_Pieter_Proj
         protected LoanTerm _loanTerm;
         protected const LoanTerm _defaultTerm = LoanTerm.Short;
         protected double _maxLoanAmount = 100000.0;
+
+
+        public void CreateLoan()
+        {
+            LoanCreated?.Invoke(this, EventArgs.Empty);
+        }
 
 
         public Loan(int loanNumber, string customerName, string customerSurname, double loanAmount, LoanTerm loanTerm) 
@@ -28,11 +37,12 @@ namespace PRG281_Nel_Pieter_Proj
             SetPrimeInterestRate();
         }
 
-        public void SetPrimeInterestRate()
+        public static void SetPrimeInterestRate()
         {
+
             double interestRate;
 
-            Console.WriteLine("Enter the prime interest rate (%)");
+            Console.WriteLine("Please enter the prime interest rate (%)");
             string enteredInterestRate = Console.ReadLine();
 
             if(double.TryParse(enteredInterestRate, out interestRate))
@@ -51,7 +61,7 @@ namespace PRG281_Nel_Pieter_Proj
         public override string ToString()
         {
             return "{" + $"Loan number: {_loanNumber}, First Name: {_customerFirstName} " +
-                   $"Last Name: {_customerLastName}, Loan Amount: {_loanAmount}";
+                   $"Last Name: {_customerLastName}, Loan Amount: {_loanAmount}" + "}";
 
         }
     }

@@ -9,11 +9,35 @@ namespace PRG281_Nel_Pieter_Proj_Console
 {
     internal class UserInterface
     {
+        private static LoanType loanType;
+
+
         public void StartMenu()
         {
             Console.WriteLine($"Welcome to {Loan.CompanyName}!");
-            Console.WriteLine("Would you like to take out a loan?");
-
+            Loan.SetPrimeInterestRate();
         }
+
+        public void ChooseLoanType()
+        {
+            Console.WriteLine("Choose Loan Type");
+            Console.WriteLine("0. Personal Loan");
+            Console.WriteLine("1. Business Loan");
+
+            int loanTypeInt;
+            string loanTypeRaw = Console.ReadLine();
+
+            if(!int.TryParse(loanTypeRaw, out loanTypeInt) || loanTypeInt > 1)
+            {
+                Console.Clear();
+                ChooseLoanType();
+                return;
+            }
+
+            loanType = (LoanType)loanTypeInt;
+        }
+
+
     }
 }
+
