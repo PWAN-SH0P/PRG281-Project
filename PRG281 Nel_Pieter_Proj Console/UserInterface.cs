@@ -39,14 +39,14 @@ namespace PRG281_Nel_Pieter_Proj_Console
 
         public static void ChooseLoanType()
         {
+            int loanTypeInt;
             Console.WriteLine("Choose Loan Type");
             Console.WriteLine("0. Personal Loan");
             Console.WriteLine("1. Business Loan");
 
-            int loanTypeInt = -1;
             string loanTypeRaw = Console.ReadLine();
 
-            if(!int.TryParse(loanTypeRaw, out loanTypeInt) || loanTypeInt > 1)
+            if(!int.TryParse(loanTypeRaw, out loanTypeInt) || loanTypeInt > 1 || loanTypeInt < 0)
             {
                 Console.Clear();
                 ChooseLoanType();
@@ -64,10 +64,10 @@ namespace PRG281_Nel_Pieter_Proj_Console
             string loanNumberRaw = Console.ReadLine();
 
             Console.WriteLine("Enter Customer Name: ");
-            string enteredCustomerName = Console.ReadLine();
+            string customerName = Console.ReadLine();
 
             Console.WriteLine("Enter Customer Surname: ");
-            string enteredCustomerSurname = Console.ReadLine();
+            string customerSurname = Console.ReadLine();
 
             Console.WriteLine("Enter Loan Amount: ");
             string loanAmountRaw = Console.ReadLine();
@@ -77,9 +77,10 @@ namespace PRG281_Nel_Pieter_Proj_Console
             Console.WriteLine("1. Medium (3 years)");
             Console.WriteLine("2. Long (5 years)");
             string loanTermRaw = Console.ReadLine();
+            int loanTermInt = -1;
 
 
-            if(!int.TryParse(loanNumberRaw, out int enteredLoanNumber))
+            if (!int.TryParse(loanNumberRaw, out int loanNumber))
             {
                 Console.Clear();
                 Console.WriteLine("Invalid loan number");
@@ -87,7 +88,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
                 return;
             }
 
-            if (!double.TryParse(loanAmountRaw, out double enteredLoanAmount))
+            if (!double.TryParse(loanAmountRaw, out double loanAmount))
             {
                 Console.Clear();
                 Console.WriteLine("Invalid loan amount");
@@ -95,7 +96,11 @@ namespace PRG281_Nel_Pieter_Proj_Console
                 return;
             }
 
-            if(!int.TryParse(loanTermRaw, out int loanTermInt) || loanTermInt > 2)
+            if(loanTermRaw == "")
+            {
+                loanData.TermOfLoan = LoanTerm.Short;
+            }
+            else if(!int.TryParse(loanTermRaw, out loanTermInt) || loanTermInt > 2  || loanTermInt < 0)
             {
                 Console.Clear();
                 Console.WriteLine("Invalid loan term");
@@ -103,11 +108,12 @@ namespace PRG281_Nel_Pieter_Proj_Console
                 return;
             }
 
-            loanData.TermOfLoan = (LoanTerm)loanTermInt;
-            loanData.LoanNumber = enteredLoanNumber;
-            loanData.CustomerName = enteredCustomerName;
-            loanData.CustomerSurname = enteredCustomerSurname;
-            loanData.LoanAmount = enteredLoanAmount;
+            if (loanData.TermOfLoan != LoanTerm.Short) { loanData.TermOfLoan = (LoanTerm)loanTermInt; }
+                
+            loanData.LoanNumber = loanNumber;
+            loanData.CustomerName = customerName;
+            loanData.CustomerSurname = customerSurname;
+            loanData.LoanAmount = loanAmount;
         }
     }
 }
