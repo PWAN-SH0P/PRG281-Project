@@ -24,7 +24,9 @@ namespace PRG281_Nel_Pieter_Proj
 
         public static double PrimeInterestRate
         {
-            get { return (_primeInterestRate); } }
+            get { return (_primeInterestRate); } 
         }
     }
 }
+
+

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PRG281_Nel_Pieter_Proj
 {
@@ -25,6 +26,17 @@ namespace PRG281_Nel_Pieter_Proj
             _customerLastName = customerSurname;
             _loanAmount = loanAmount;
             _loanTerm = loanTerm;
+        }
+
+        public void SetPrimeInterestRate()
+        {
+            Console.WriteLine("Enter the prime interest rate");
+            string enteredInterestRate = Console.ReadLine();
+
+            if(double.TryParse(enteredInterestRate, out double interestRate))
+            {
+                PrimeInterestRate = interestRate;
+            }
         }
 
         public override string ToString()

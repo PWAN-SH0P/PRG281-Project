@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRG281 Nel_Pieter_Proj", "PRG281 Nel_Pieter_Proj\PRG281 Nel_Pieter_Proj.csproj", "{904BAD46-A0B4-4204-817A-68B099DF257E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRG281 Nel_Pieter_Proj Console", "PRG281 Nel_Pieter_Proj Console\PRG281 Nel_Pieter_Proj Console.csproj", "{C9DDFA40-4B09-445C-B244-A56FE6BBD05E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{904BAD46-A0B4-4204-817A-68B099DF257E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{904BAD46-A0B4-4204-817A-68B099DF257E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{904BAD46-A0B4-4204-817A-68B099DF257E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{904BAD46-A0B4-4204-817A-68B099DF257E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9DDFA40-4B09-445C-B244-A56FE6BBD05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9DDFA40-4B09-445C-B244-A56FE6BBD05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9DDFA40-4B09-445C-B244-A56FE6BBD05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9DDFA40-4B09-445C-B244-A56FE6BBD05E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {74B03177-D4DF-4A7F-891D-BBB86B05176D}
+		SolutionGuid = {E3A04928-8D61-4DF4-AF7A-1CEDD28AE097}
 	EndGlobalSection
 EndGlobal
