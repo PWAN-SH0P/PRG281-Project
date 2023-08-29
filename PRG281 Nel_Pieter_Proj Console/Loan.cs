@@ -15,7 +15,6 @@ namespace PRG281_Nel_Pieter_Proj
         protected double _loanAmount;
         protected LoanTerm _loanTerm;
         protected const LoanTerm _defaultTerm = LoanTerm.Short;
-        public static double PrimeInterestRate {get; set;}
         protected double _maxLoanAmount = 100000.0;
 
 
@@ -31,13 +30,22 @@ namespace PRG281_Nel_Pieter_Proj
 
         public void SetPrimeInterestRate()
         {
-            Console.WriteLine("Enter the prime interest rate");
+            double interestRate;
+
+            Console.WriteLine("Enter the prime interest rate (%)");
             string enteredInterestRate = Console.ReadLine();
 
-            if(double.TryParse(enteredInterestRate, out double interestRate))
+            if(double.TryParse(enteredInterestRate, out interestRate))
             {
-                PrimeInterestRate = interestRate;
+                PrimeInterestRate = interestRate/100.0;
             }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Enter a valid prime interest rate");
+                SetPrimeInterestRate();
+            }
+
         }
 
         public override string ToString()

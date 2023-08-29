@@ -10,7 +10,7 @@ namespace PRG281_Nel_Pieter_Proj
     {
         private const string _companyName = "Unique Building Services Loan Company";
         private const double _maxLoanAmount = 100000.0;
-        private const double _primeInterestRate = 0.1;
+        protected static double _primeInterestRate;
 
         public static string CompanyName
         {
@@ -22,10 +22,7 @@ namespace PRG281_Nel_Pieter_Proj
             get { return _maxLoanAmount; }
         }
 
-        public static double PrimeInterestRate
-        {
-            get { return (_primeInterestRate); } 
-        }
+        public static double PrimeInterestRate { get;set; }
     }
 }
 

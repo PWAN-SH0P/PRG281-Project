@@ -11,7 +11,9 @@ namespace PRG281_Nel_Pieter_Proj_Console
     {
         public void StartMenu()
         {
-            Console.WriteLine("Welcome to ")
+            Console.WriteLine($"Welcome to {Loan.CompanyName}!");
+            Console.WriteLine("Would you like to take out a loan?");
+
         }
     }
 }
