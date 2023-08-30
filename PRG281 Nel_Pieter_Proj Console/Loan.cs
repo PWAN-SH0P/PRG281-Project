@@ -59,9 +59,14 @@ namespace PRG281_Nel_Pieter_Proj
 
         public override string ToString()
         {
-            return "{" + $"Loan number: {_loanNumber} \t First Name: {_customerFirstName} \t" +
-                   $"Last Name: {_customerLastName} \t Loan Amount: {_loanAmount}" + "}";
+            return  $"Loan number: {_loanNumber} \t First Name: {_customerFirstName} \t" +
+                   $"Last Name: {_customerLastName} \t Loan Amount: {_loanAmount} \t Loan Term: {_loanTerm}";
 
+        }
+
+        public void DisplayDetails()
+        {
+            Console.WriteLine(this.ToString());
         }
     }
 }

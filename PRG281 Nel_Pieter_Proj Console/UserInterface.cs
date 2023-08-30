@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using PRG281_Nel_Pieter_Proj;
@@ -10,8 +11,10 @@ namespace PRG281_Nel_Pieter_Proj_Console
 {
     internal class UserInterface
     {
-
+        private static bool loanDetailsCorrect = false;
         private static LoanDataHandler loanData = new LoanDataHandler();
+        private static Loan loan;
+
 
 
         public static void StartMenu()
@@ -20,20 +23,29 @@ namespace PRG281_Nel_Pieter_Proj_Console
             Loan.SetPrimeInterestRate();
         }
 
-        public static Loan MainMenu()
+        public static void MainMenu()
         {
             ChooseLoanType();
             EnterLoanDetails();
+            ConfirmEntry(loanData);
+
+            if (!loanDetailsCorrect) 
+            { 
+                MainMenu();
+                return;
+            }
 
             switch(loanData.TypeOfLoan)
             {
                 case LoanType.Business:
                     Console.Clear();
-                    return PersonalLoan.CreateLoan(loanData);
+                    loan = PersonalLoan.CreateLoan(loanData);
+                    break;
 
                 default:
                     Console.Clear();
-                    return BusinessLoan.CreateLoan(loanData);
+                    loan = BusinessLoan.CreateLoan(loanData);
+                    break;
             }
         }
 
@@ -114,6 +126,36 @@ namespace PRG281_Nel_Pieter_Proj_Console
             loanData.CustomerName = customerName;
             loanData.CustomerSurname = customerSurname;
             loanData.LoanAmount = loanAmount;
+        }
+
+        public static void ConfirmEntry(LoanDataHandler loanData)
+        {
+            Console.WriteLine("The data for this loan is: ");
+            Console.WriteLine(loanData.ToString());
+            Console.WriteLine("Edit? (y/n)");
+
+            string editSelected = Console.ReadLine().ToUpper();
+
+            if(editSelected != "Y" && editSelected != "N")
+            {
+                Console.Clear();
+                Console.WriteLine("Type Y or N");
+                ConfirmEntry(loanData);
+                return;
+            }
+
+            if (editSelected != "N")
+            {
+                Console.WriteLine("Selected N");
+
+                loanDetailsCorrect = true;
+                return;
+            }
+        }
+
+        public static Loan ReturnLoan()
+        {
+            return loan;
         }
     }
 }

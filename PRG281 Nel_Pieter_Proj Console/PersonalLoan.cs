@@ -19,5 +19,10 @@ namespace PRG281_Nel_Pieter_Proj
             PersonalLoan personalLoan = new PersonalLoan(loanDataHandler);
             return personalLoan;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" \t Loan Type: Personal";
+        }
     }
 }

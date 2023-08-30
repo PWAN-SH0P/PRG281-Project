@@ -18,5 +18,10 @@ namespace PRG281_Nel_Pieter_Proj
             BusinessLoan businessLoan = new BusinessLoan(loanDataHandler);
             return businessLoan;
         }
+
+        public override string ToString()
+        {
+            return base.ToString() + $" \t Loan Type: Business";
+        }
     }
 }

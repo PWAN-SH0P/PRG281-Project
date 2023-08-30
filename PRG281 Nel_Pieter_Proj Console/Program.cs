@@ -11,21 +11,27 @@ namespace PRG281_Nel_Pieter_Proj
 {
     internal class Program
     {
+       
         public static void Main(string[] args)
         {
+            int maxNumberOfLoans = 2;
             List<Loan> loanList = new List<Loan>();
             UserInterface.StartMenu();
 
-            for(int i = 0; i < 5; i++)
+
+            for(int i = 0; i < maxNumberOfLoans; i++)
             {
-                loanList.Add(UserInterface.MainMenu());
+                UserInterface.MainMenu();
+                loanList.Add(UserInterface.ReturnLoan());
             }
+
+            Console.WriteLine("Loans Created: ");
 
             foreach (Loan loan in loanList)
             {
-                Console.WriteLine(loan.ToString());
+                loan.DisplayDetails();
             }
-            
+
             Console.Read();
         }
     }
