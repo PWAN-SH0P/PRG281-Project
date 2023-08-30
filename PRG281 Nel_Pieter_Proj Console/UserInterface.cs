@@ -11,31 +11,31 @@ namespace PRG281_Nel_Pieter_Proj_Console
 {
     internal class UserInterface
     {
-        private static bool loanDetailsCorrect = false;
-        private static LoanData loanData = new LoanData();
+        private static bool loanDetailsCorrect = false;         // This bool is used in the ConfirmEntry() method
+        private static LoanData loanData = new LoanData();      // to confirm if a loan should be added or if its data be changed
         private static Loan loan;
 
 
 
-        public static void StartMenu()
+        public static void StartMenu()      // Opens a welcome screen and prompts for the prime interest rate
         {
             Console.WriteLine($"Welcome to {Loan.CompanyName}!");
             Loan.SetPrimeInterestRate();
         }
 
-        public static void MainMenu()
+        public static void MainMenu()       // This screen appears for the addition of every loan
         {
-            ChooseLoanType();
-            EnterLoanDetails();
-            ConfirmEntry(loanData);
+            ChooseLoanType();               // The type of loan is chosen
+            EnterLoanDetails();             // Then the user is prompted for details
+            ConfirmEntry(loanData);         // Finally, the user is asked if the details are correct
 
-            if (!loanDetailsCorrect) 
-            { 
+            if (!loanDetailsCorrect)        // Restarts menu if the user wishes to change the details for the most recent loan
+            {                               // Does not affect previous loans
                 MainMenu();
                 return;
             }
 
-            switch(loanData.TypeOfLoan)
+            switch(loanData.TypeOfLoan)     // Creates loan based on the chosen type
             {
                 case LoanType.Business:
                     Console.Clear();
@@ -49,7 +49,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
             }
         }
 
-        public static void ChooseLoanType()
+        public static void ChooseLoanType()     // Prompts user to choose the type of loan
         {
             int loanTypeInt;
             Console.WriteLine("Choose Loan Type");
@@ -58,18 +58,19 @@ namespace PRG281_Nel_Pieter_Proj_Console
 
             string loanTypeRaw = Console.ReadLine();
 
-            if(!int.TryParse(loanTypeRaw, out loanTypeInt) || loanTypeInt > 1 || loanTypeInt < 0)
-            {
-                Console.Clear();
+            if(!int.TryParse(loanTypeRaw, out loanTypeInt) || loanTypeInt > 1 || loanTypeInt < 0) // Checks if input can be parsed as int
+            {                                                                                     // If so, checks if in valid range
+                Console.Clear();                                                                  // If invalid, prompts for loan type again
+                Console.WriteLine("Invalid loan type");
                 ChooseLoanType();
                 return;
             }
 
-            loanData.TypeOfLoan = (LoanType)loanTypeInt;
+            loanData.TypeOfLoan = (LoanType)loanTypeInt;        // Converts selection to item in enum LoanType
            
         }
    
-        public static void EnterLoanDetails()
+        public static void EnterLoanDetails()   // Prompts user for loan details
         {
 
             Console.WriteLine("Enter Loan Number: ");
@@ -89,30 +90,30 @@ namespace PRG281_Nel_Pieter_Proj_Console
             Console.WriteLine("1. Medium (3 years)");
             Console.WriteLine("2. Long (5 years)");
             string loanTermRaw = Console.ReadLine();
-            int loanTermInt = -1;
+            int loanTermInt = -1;                       // Set to -1 as a hack. Later code needs this and TryParse might not produce a value
 
 
-            if (!int.TryParse(loanNumberRaw, out int loanNumber))
-            {
-                Console.Clear();
+            if (!int.TryParse(loanNumberRaw, out int loanNumber))  // Checks if the loan number entered can be parsed as int
+            {                                                      // outputs loanNumber as double, if it can
+                Console.Clear();                                   // Restarts prompt for this loan, if not
                 Console.WriteLine("Invalid loan number");
                 EnterLoanDetails();
                 return;
             }
 
-            if (!double.TryParse(loanAmountRaw, out double loanAmount))
-            {
+            if (!double.TryParse(loanAmountRaw, out double loanAmount)) // As with loanNumber
+            {                                                           
                 Console.Clear();
                 Console.WriteLine("Invalid loan amount");
                 EnterLoanDetails();
                 return;
             }
 
-            if(loanTermRaw == "")
+            if(loanTermRaw == "")       // Loan term must default to Short, according to instructions
             {
                 loanData.TermOfLoan = LoanTerm.Short;
             }
-            else if(!int.TryParse(loanTermRaw, out loanTermInt) || loanTermInt > 2  || loanTermInt < 0)
+            else if(!int.TryParse(loanTermRaw, out loanTermInt) || loanTermInt > 2  || loanTermInt < 0) // As with loanNumber, but checks if in valid range for enum LoanTerm
             {
                 Console.Clear();
                 Console.WriteLine("Invalid loan term");
@@ -120,7 +121,10 @@ namespace PRG281_Nel_Pieter_Proj_Console
                 return;
             }
 
-            if (loanData.TermOfLoan != LoanTerm.Short) { loanData.TermOfLoan = (LoanTerm)loanTermInt; }
+            if (loanData.TermOfLoan != LoanTerm.Short)  // TermOfLoan will be null, unless set to default value due to empty input
+            { 
+                loanData.TermOfLoan = (LoanTerm)loanTermInt; 
+            } 
                 
             loanData.LoanNumber = loanNumber;
             loanData.CustomerName = customerName;
@@ -128,7 +132,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
             loanData.LoanAmount = loanAmount;
         }
 
-        public static void ConfirmEntry(LoanData loanData)
+        public static void ConfirmEntry(LoanData loanData)  // Asks if user wants to add the current loan, or re-enter details
         {
             Console.WriteLine("The data for this loan is: ");
             Console.WriteLine(loanData.ToString());
@@ -153,7 +157,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
             }
         }
 
-        public static Loan ReturnLoan()
+        public static Loan ReturnLoan() // Returns the loan created. This probably isn't the right way to go about this.
         {
             return loan;
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG281_Nel_Pieter_Proj
 {
-    class LoanData
+    class LoanData  //Allows for easy collection of data related a loan into one object before being passed into a constructor
     {
         public int LoanNumber { get; set; }
         public string CustomerName { get; set; }
