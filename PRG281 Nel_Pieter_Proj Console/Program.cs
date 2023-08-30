@@ -14,20 +14,20 @@ namespace PRG281_Nel_Pieter_Proj
        
         public static void Main(string[] args)
         {
-            int maxNumberOfLoans = 2;
-            List<Loan> loanList = new List<Loan>();
+            int maxNumberOfLoans = 5;
             UserInterface.StartMenu();
+            DataHandler dataHandler = new DataHandler();
 
 
             for(int i = 0; i < maxNumberOfLoans; i++)
             {
                 UserInterface.MainMenu();
-                loanList.Add(UserInterface.ReturnLoan());
+                dataHandler.AddLoan(UserInterface.ReturnLoan());
             }
 
             Console.WriteLine("Loans Created: ");
 
-            foreach (Loan loan in loanList)
+            foreach (Loan loan in dataHandler.GetAllLoans())
             {
                 loan.DisplayDetails();
             }
