@@ -8,14 +8,14 @@ namespace PRG281_Nel_Pieter_Proj
 {
     internal class BusinessLoan : Loan
     {
-        BusinessLoan(LoanDataHandler loanDataHandler) : base(loanDataHandler)
+        BusinessLoan(LoanData loanData) : base(loanData)
         {
             PrimeInterestRate += 0.01;
         }
 
-        public static BusinessLoan CreateLoan(LoanDataHandler loanDataHandler)
+        public static BusinessLoan CreateLoan(LoanData loanData)
         {
-            BusinessLoan businessLoan = new BusinessLoan(loanDataHandler);
+            BusinessLoan businessLoan = new BusinessLoan(loanData);
             return businessLoan;
         }
 

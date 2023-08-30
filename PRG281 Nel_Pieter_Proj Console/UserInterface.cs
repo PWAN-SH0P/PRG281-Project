@@ -12,7 +12,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
     internal class UserInterface
     {
         private static bool loanDetailsCorrect = false;
-        private static LoanDataHandler loanData = new LoanDataHandler();
+        private static LoanData loanData = new LoanData();
         private static Loan loan;
 
 
@@ -128,7 +128,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
             loanData.LoanAmount = loanAmount;
         }
 
-        public static void ConfirmEntry(LoanDataHandler loanData)
+        public static void ConfirmEntry(LoanData loanData)
         {
             Console.WriteLine("The data for this loan is: ");
             Console.WriteLine(loanData.ToString());

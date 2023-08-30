@@ -20,13 +20,13 @@ namespace PRG281_Nel_Pieter_Proj
         protected double _maxLoanAmount = 100000.0;
 
 
-        public Loan(LoanDataHandler loanDataHandler) 
+        public Loan(LoanData loanData) 
         {
-            _loanNumber = loanDataHandler.LoanNumber;
-            _customerFirstName = loanDataHandler.CustomerName; 
-            _customerLastName = loanDataHandler.CustomerSurname; 
-            _loanAmount = loanDataHandler.LoanAmount; 
-            _loanTerm = loanDataHandler.TermOfLoan;
+            _loanNumber = loanData.LoanNumber;
+            _customerFirstName = loanData.CustomerName; 
+            _customerLastName = loanData.CustomerSurname; 
+            _loanAmount = loanData.LoanAmount; 
+            _loanTerm = loanData.TermOfLoan;
         }
 
         public static void SetPrimeInterestRate()

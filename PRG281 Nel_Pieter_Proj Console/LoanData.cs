@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRG281_Nel_Pieter_Proj
 {
-    class LoanDataHandler
+    class LoanData
     {
         public int LoanNumber { get; set; }
         public string CustomerName { get; set; }

@@ -9,14 +9,14 @@ namespace PRG281_Nel_Pieter_Proj
     internal class PersonalLoan : Loan
     {
 
-        PersonalLoan(LoanDataHandler loanDataHandler): base(loanDataHandler)
+        PersonalLoan(LoanData loanData): base(loanData)
         {
             PrimeInterestRate += 0.02;
         }
 
-        public static PersonalLoan CreateLoan(LoanDataHandler loanDataHandler)
+        public static PersonalLoan CreateLoan(LoanData loanData)
         {
-            PersonalLoan personalLoan = new PersonalLoan(loanDataHandler);
+            PersonalLoan personalLoan = new PersonalLoan(loanData);
             return personalLoan;
         }
 
