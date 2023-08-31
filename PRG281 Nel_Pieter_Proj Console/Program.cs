@@ -14,7 +14,7 @@ namespace PRG281_Nel_Pieter_Proj
        
         public static void Main(string[] args)
         {
-            int maxNumberOfLoans = 5;
+            int maxNumberOfLoans = 2;
             UserInterface.StartMenu();
             DataHandler dataHandler = new DataHandler();
 

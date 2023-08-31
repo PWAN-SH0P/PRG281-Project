@@ -11,7 +11,6 @@ namespace PRG281_Nel_Pieter_Proj_Console
 {
     internal class UserInterface
     {
-        private static bool loanDetailsCorrect = false;         // This bool is used in the ConfirmEntry() method
         private static LoanData loanData = new LoanData();      // to confirm if a loan should be added or if its data be changed
         private static Loan loan;
 
@@ -25,12 +24,14 @@ namespace PRG281_Nel_Pieter_Proj_Console
 
         public static void MainMenu()       // This screen appears for the addition of every loan
         {
-            ChooseLoanType();               // The type of loan is chosen
-            EnterLoanDetails();             // Then the user is prompted for details
-            ConfirmEntry(loanData);         // Finally, the user is asked if the details are correct
+            ChooseLoanType();                                   // The type of loan is chosen
+            EnterLoanDetails();                                 // Then the user is prompted for details
+            bool confirmEntry = ConfirmEntry(loanData);         // Finally, the user is asked if the details are correct
 
-            if (!loanDetailsCorrect)        // Restarts menu if the user wishes to change the details for the most recent loan
+            if (!confirmEntry)        // Restarts menu if the user wishes to change the details for the most recent loan
             {                               // Does not affect previous loans
+                Console.Clear();
+                Console.WriteLine("Editing loan");
                 MainMenu();
                 return;
             }
@@ -90,7 +91,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
             Console.WriteLine("1. Medium (3 years)");
             Console.WriteLine("2. Long (5 years)");
             string loanTermRaw = Console.ReadLine();
-            int loanTermInt = -1;                       // Set to -1 as a hack. Later code needs this and TryParse might not produce a value
+            int loanTermInt = -1;    // Set to -1 as a hack. Later code needs this and TryParse might not produce a value
 
 
             if (!int.TryParse(loanNumberRaw, out int loanNumber))  // Checks if the loan number entered can be parsed as int
@@ -132,7 +133,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
             loanData.LoanAmount = loanAmount;
         }
 
-        public static void ConfirmEntry(LoanData loanData)  // Asks if user wants to add the current loan, or re-enter details
+        public static bool ConfirmEntry(LoanData loanData)  // Asks if user wants to add the current loan, or re-enter details
         {
             Console.WriteLine("The data for this loan is: ");
             Console.WriteLine(loanData.ToString());
@@ -140,21 +141,19 @@ namespace PRG281_Nel_Pieter_Proj_Console
 
             string editSelected = Console.ReadLine().ToUpper();
 
-            if(editSelected != "Y" && editSelected != "N")
+            if(editSelected == "Y")
             {
-                Console.Clear();
-                Console.WriteLine("Type Y or N");
-                ConfirmEntry(loanData);
-                return;
+                return false;
             }
 
-            if (editSelected != "N")
+            if(editSelected == "N")
             {
-                Console.WriteLine("Selected N");
-
-                loanDetailsCorrect = true;
-                return;
+                return true;
             }
+            Console.Clear();
+            Console.WriteLine("Enter Y or N");
+            return ConfirmEntry(loanData);
+
         }
 
         public static Loan ReturnLoan() // Returns the loan created. This probably isn't the right way to go about this.
