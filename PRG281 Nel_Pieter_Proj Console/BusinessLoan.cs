@@ -10,7 +10,7 @@ namespace PRG281_Nel_Pieter_Proj
     {
         BusinessLoan(LoanData loanData) : base(loanData)
         {
-            PrimeInterestRate += 0.01;
+            InterestRate = PrimeInterestRate + 0.01;
         }
 
         public static BusinessLoan CreateLoan(LoanData loanData)

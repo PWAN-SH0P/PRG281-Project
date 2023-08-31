@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.CompilerServices;
@@ -11,9 +12,31 @@ namespace PRG281_Nel_Pieter_Proj_Console
 {
     internal class UserInterface
     {
+
         private static LoanData loanData = new LoanData();      // to confirm if a loan should be added or if its data be changed
         private static Loan loan;
+        private static string maxLoanAmountString = LoanConstants.MaxLoanAmount.ToString("C", new CultureInfo("en-ZA"));
 
+
+        public static void CreationMenu()
+        {
+            UserInterface.StartMenu();
+            DataHandler dataHandler = new DataHandler();
+
+            for (int i = 0; i < LoanConstants.MaxNumberOfLoans; i++)
+            {
+                UserInterface.MainMenu();
+                dataHandler.AddLoan(UserInterface.ReturnLoan());
+            }
+
+            Console.WriteLine("Loans Created: ");
+
+            foreach (Loan loan in dataHandler.GetAllLoans())
+            {
+                loan.DisplayDetails();
+            }
+
+        }
 
 
         public static void StartMenu()      // Opens a welcome screen and prompts for the prime interest rate
@@ -80,8 +103,12 @@ namespace PRG281_Nel_Pieter_Proj_Console
             Console.WriteLine("Enter Customer Name: ");
             string customerName = Console.ReadLine();
 
-            Console.WriteLine("Enter Customer Surname: ");
-            string customerSurname = Console.ReadLine();
+            string customerSurname = "\t";
+            if (loanData.TypeOfLoan != LoanType.Business)
+            {
+                Console.WriteLine("Enter Customer Surname: ");
+                customerSurname = Console.ReadLine();
+            }
 
             Console.WriteLine("Enter Loan Amount: ");
             string loanAmountRaw = Console.ReadLine();
@@ -102,10 +129,11 @@ namespace PRG281_Nel_Pieter_Proj_Console
                 return;
             }
 
-            if (!double.TryParse(loanAmountRaw, out double loanAmount)) // As with loanNumber
+            
+            if (!double.TryParse(loanAmountRaw, out double loanAmount) || loanAmount > LoanConstants.MaxLoanAmount || loanAmount < 0) // As with loanNumber
             {                                                           
                 Console.Clear();
-                Console.WriteLine("Invalid loan amount");
+                Console.WriteLine("Invalid loan amount. Must be positive decimal value not exceeding " + maxLoanAmountString);
                 EnterLoanDetails();
                 return;
             }
@@ -155,6 +183,7 @@ namespace PRG281_Nel_Pieter_Proj_Console
             return ConfirmEntry(loanData);
 
         }
+
 
         public static Loan ReturnLoan() // Returns the loan created. This probably isn't the right way to go about this.
         {

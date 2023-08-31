@@ -11,28 +11,36 @@ namespace PRG281_Nel_Pieter_Proj
 {
     internal class Program
     {
-       
+
         public static void Main(string[] args)
         {
-            int maxNumberOfLoans = 2;
-            UserInterface.StartMenu();
-            DataHandler dataHandler = new DataHandler();
-
-
-            for(int i = 0; i < maxNumberOfLoans; i++)
+            bool runMenu = true;
+            while (runMenu)
             {
-                UserInterface.MainMenu();
-                dataHandler.AddLoan(UserInterface.ReturnLoan());
+                UserInterface.CreationMenu();
+                Console.WriteLine("Would you like to start again? (Y/N)");
+
+                while (true)
+                {
+                    string editSelected = Console.ReadLine().ToUpper();
+
+                    if (editSelected == "Y")
+                    {
+                        runMenu = true;
+                        break;
+                    }
+
+                    if (editSelected == "N")
+                    {
+                        runMenu = false;
+                        break;
+                    }
+                    Console.Clear();
+                    Console.WriteLine("Enter Y or N");
+                }                
             }
+            Console.WriteLine($"Thank you for using {LoanConstants.CompanyName}!" );
 
-            Console.WriteLine("Loans Created: ");
-
-            foreach (Loan loan in dataHandler.GetAllLoans())
-            {
-                loan.DisplayDetails();
-            }
-
-            Console.Read();
         }
     }
 }

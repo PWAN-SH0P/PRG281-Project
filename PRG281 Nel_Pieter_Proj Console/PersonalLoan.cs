@@ -11,7 +11,7 @@ namespace PRG281_Nel_Pieter_Proj
 
         PersonalLoan(LoanData loanData): base(loanData)
         {
-            PrimeInterestRate += 0.02;
+            InterestRate = PrimeInterestRate + 0.02;
         }
 
         public static PersonalLoan CreateLoan(LoanData loanData)
